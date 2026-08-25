@@ -33,7 +33,7 @@ export default function OrbitField() {
       context.fillStyle = "#080809";
       context.fillRect(0, 0, width, height);
       const mobile = width < 700;
-      const regionWidth = mobile ? width * 0.68 : Math.min(width * 0.46, height * 0.72);
+      const regionWidth = mobile ? width * 0.60 : Math.min(width * 0.41, height * 0.64);
       const regionHeight = height;
       const regionLeft = mobile ? width * 0.08 : width * 0.13;
       const regionTop = 0;
