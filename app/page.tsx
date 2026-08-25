@@ -54,6 +54,12 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
+        <div className="hero-smoke" aria-hidden="true">
+          <span className="smoke-layer smoke-one" />
+          <span className="smoke-layer smoke-two" />
+          <span className="smoke-layer smoke-three" />
+        </div>
+        <img className="hero-mark" src="/astron-logo.jpg" alt="" aria-hidden="true" />
         <div className="hero-noise" aria-hidden="true" />
         <p className="eyebrow">Athens · 121 Konstantinoupoleos</p>
         <p className="hero-side">Electronic music<br />&amp; club culture</p>
