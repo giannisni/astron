@@ -47,6 +47,7 @@ export default function Home() {
         </a>
         <nav aria-label="Main navigation">
           <a href="#next">Next</a>
+          <a href="#sets">Sets</a>
           <a href="#archive">Archive</a>
           <a href="#about">About</a>
           <a href="#visit">Visit</a>
@@ -90,8 +91,33 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="sets-section" id="sets">
+        <div className="section-label"><span>02</span><p>Recorded at Astron</p></div>
+        <div className="sets-intro">
+          <h2>Sets from<br />the room.</h2>
+          <p>Live recordings and sessions from the Astron archive. Press play without leaving the signal.</p>
+        </div>
+        <div className="soundcloud-shell">
+          <iframe
+            title="Astron sets on SoundCloud"
+            width="100%"
+            height="450"
+            scrolling="no"
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+            loading="lazy"
+            src="https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Fusers%2F29135206&show_artwork=true&maxheight=450&color=ed70b8"
+          />
+        </div>
+        <div className="sets-footer">
+          <p>Constantine · 02.02.19<br />Bedouin Records at Astron Bar</p>
+          <p>Makaton Live · 17.02.18<br />Astron Bar</p>
+          <a href="https://soundcloud.com/astron-bar" target="_blank" rel="noreferrer">All sets on SoundCloud ↗</a>
+        </div>
+      </section>
+
       <section className="archive-section" id="archive">
-        <div className="section-label"><span>02</span><p>Past events / visual archive</p></div>
+        <div className="section-label"><span>03</span><p>Past events / visual archive</p></div>
         <div className="archive-intro">
           <h2>Every night<br />leaves a trace.</h2>
           <p>A growing collection of posters from the Astron orbit. Select any piece to view it full size.</p>
@@ -107,7 +133,7 @@ export default function Home() {
       </section>
 
       <section className="about-section" id="about">
-        <div className="section-label"><span>03</span><p>The club</p></div>
+        <div className="section-label"><span>04</span><p>The club</p></div>
         <div className="about-copy">
           <h2>A room for the<br />Athens underground.</h2>
           <p className="lead">Astron is a venue dedicated to electronic music and club culture—built around adventurous programming, a powerful system, and the collective energy of the floor.</p>
@@ -120,7 +146,7 @@ export default function Home() {
       </section>
 
       <section className="visit-section" id="visit">
-        <div className="section-label"><span>04</span><p>Find the signal</p></div>
+        <div className="section-label"><span>05</span><p>Find the signal</p></div>
         <h2>121<br />Konstantinoupoleos</h2>
         <div className="visit-details">
           <p>Votanikos<br />Athens 104 47<br />Greece</p>

@@ -40,7 +40,7 @@ h1 span:last-child { margin-left:24%; color:transparent; -webkit-text-stroke:1px
 .section-label { display:grid; grid-template-columns:70px 1fr; align-items:start; border-top:1px solid var(--line); padding-top:12px; }
 .section-label span,.section-label p { margin:0; font-size:10px; text-transform:uppercase; letter-spacing:.18em; }
 .section-label p { color:var(--acid); }
-.next-section,.archive-section,.about-section,.visit-section { padding:115px 28px 140px; }
+.next-section,.sets-section,.archive-section,.about-section,.visit-section { padding:115px 28px 140px; }
 
 .next-list { margin-top:72px; border-top:1px solid var(--line); }
 .next-event { position:relative; display:grid; grid-template-columns:110px 1fr 150px 76px; gap:28px; align-items:center; min-height:150px; border-bottom:1px solid var(--line); }
@@ -50,6 +50,19 @@ h1 span:last-child { margin-left:24%; color:transparent; -webkit-text-stroke:1px
 .poster-peek { position:absolute; z-index:2; right:95px; width:130px; padding:0; border:0; background:none; opacity:0; transform:rotate(4deg) scale(.9); transition:.3s ease; cursor:zoom-in; pointer-events:none; }
 .poster-peek img { width:100%; box-shadow:0 20px 45px #000; }
 .next-event:hover .poster-peek,.next-event:focus-within .poster-peek { opacity:1; transform:rotate(-2deg) scale(1); pointer-events:auto; }
+
+.sets-section { position:relative; overflow:hidden; background:#121212; }
+.sets-section::after { content:""; position:absolute; right:-12vw; top:5%; width:52vw; aspect-ratio:1; background:url("/astron-logo-exact.png") center/cover no-repeat; opacity:.035; mix-blend-mode:screen; animation:spin 70s linear infinite; pointer-events:none; }
+.sets-intro { position:relative; z-index:1; display:grid; grid-template-columns:2fr 1fr; gap:40px; margin:75px 0 60px; align-items:end; }
+.sets-intro h2 { margin:0; font-size:clamp(55px,9vw,130px); font-weight:400; line-height:.83; letter-spacing:-.075em; text-transform:uppercase; }
+.sets-intro p { margin:0 0 7px; max-width:350px; font-size:16px; line-height:1.4; color:#bbb8b2; }
+.soundcloud-shell { position:relative; z-index:1; padding:12px; border:1px solid var(--line); background:#080808; }
+.soundcloud-shell iframe { display:block; width:100%; border:0; filter:grayscale(1) contrast(1.08); transition:filter .3s ease; }
+.soundcloud-shell:hover iframe,.soundcloud-shell:focus-within iframe { filter:grayscale(.15) contrast(1.02); }
+.sets-footer { position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr 1fr; gap:30px; margin-top:18px; padding-top:14px; border-top:1px solid var(--line); }
+.sets-footer p,.sets-footer a { margin:0; font-size:10px; line-height:1.5; text-transform:uppercase; letter-spacing:.12em; }
+.sets-footer p { color:#9e9b95; }
+.sets-footer a { justify-self:end; color:var(--acid); }
 
 .archive-section { background:var(--paper); color:var(--night); }
 .archive-section .section-label { border-color:rgba(0,0,0,.3); }
@@ -116,13 +129,19 @@ footer p:last-child { text-align:right; }
   h1 { font-size:24vw; line-height:.78; }
   h1 span:last-child { margin-left:8%; }
   .enter-link { display:none; }
-  .next-section,.archive-section,.about-section,.visit-section { padding:78px 18px 95px; }
+  .next-section,.sets-section,.archive-section,.about-section,.visit-section { padding:78px 18px 95px; }
   .section-label { grid-template-columns:45px 1fr; }
   .next-list { margin-top:45px; }
   .next-event { grid-template-columns:70px 1fr; gap:10px 14px; padding:20px 0; }
   .next-event h2 { font-size:27px; }
   .next-meta { grid-column:2; }.next-event>a { grid-column:2; text-align:left; }
   .poster-peek { display:none; }
+  .sets-intro { grid-template-columns:1fr; margin:50px 0 42px; }
+  .sets-intro p { margin-left:25%; }
+  .soundcloud-shell { padding:7px; }
+  .soundcloud-shell iframe { height:420px; }
+  .sets-footer { grid-template-columns:1fr; gap:14px; }
+  .sets-footer a { justify-self:start; margin-top:10px; }
   .archive-intro { grid-template-columns:1fr; margin:50px 0 60px; }
   .archive-intro p { margin-left:25%; }
   .poster-grid { grid-template-columns:1fr 1fr; gap:42px 10px; }
