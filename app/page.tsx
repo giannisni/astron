@@ -1,4 +1,3 @@
-import Link from "next/link";
 import OrbitField from "./components/OrbitField";
 
 const navigation = [
@@ -14,13 +13,13 @@ export default function Home() {
     <main className="home-screen">
       <OrbitField />
       <div className="grain" aria-hidden="true" />
-      <Link className="home-wordmark" href="/" aria-label="Astron Club home">Astron</Link>
+      <a className="home-wordmark" href="/" aria-label="Astron Club home">Astron</a>
       <nav className="home-nav" aria-label="Main navigation">
         {navigation.map(([label, href], index) => (
-          <Link href={href} key={href}>
+          <a href={href} key={href}>
             <span>{String(index + 1).padStart(2, "0")}</span>
             {label}
-          </Link>
+          </a>
         ))}
       </nav>
       <img className="home-symbol" src="/astron-logo-exact.png" alt="Astron spiral symbol" />

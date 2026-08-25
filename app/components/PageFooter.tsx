@@ -1,10 +1,9 @@
-import Link from "next/link";
 import { instagram, soundcloud } from "../data";
 
 export default function PageFooter() {
   return (
     <footer className="page-footer">
-      <Link href="/">Astron Club</Link>
+      <a href="/">Astron Club</a>
       <p>121 Konstantinoupoleos<br />Athens 104 47, Greece</p>
       <div>
         <a href={instagram} target="_blank" rel="noreferrer">Instagram ↗</a>

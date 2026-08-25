@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const links = [
   ["Events", "/events"],
   ["Sets", "/sets"],
@@ -11,13 +9,13 @@ const links = [
 export default function InnerHeader() {
   return (
     <header className="inner-header">
-      <Link className="inner-wordmark" href="/">Astron</Link>
+      <a className="inner-wordmark" href="/">Astron</a>
       <nav aria-label="Site navigation">
-        {links.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
+        {links.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
       </nav>
-      <Link className="menu-home" href="/" aria-label="Return to home">
+      <a className="menu-home" href="/" aria-label="Return to home">
         <img src="/astron-logo-exact.png" alt="" />
-      </Link>
+      </a>
     </header>
   );
 }
