@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { posters } from "../data";
+import { instagram, posters, residentAdvisor } from "../data";
 
 export default function ArchiveGallery() {
   const [active, setActive] = useState<number | null>(null);
@@ -25,14 +25,20 @@ export default function ArchiveGallery() {
     <>
       <div className="archive-grid">
         {posters.map((poster, index) => (
-          <button type="button" className="archive-item" key={poster.src} onClick={() => setActive(index)}>
-            <img src={poster.src} alt={`${poster.title}, ${poster.date}`} loading={index > 5 ? "lazy" : "eager"} />
-            <span>
+          <article className="archive-entry" key={poster.src}>
+            <button type="button" className="archive-item" onClick={() => setActive(index)} aria-label={`View poster for ${poster.title}`}>
+              <img src={poster.src} alt={`${poster.title}, ${poster.date}`} loading={index > 5 ? "lazy" : "eager"} />
+            </button>
+            <div className="archive-entry-details">
               <b>{poster.title}</b>
               <i>Date: {poster.date}</i>
               <em>Venue: Astron Club, Athens</em>
-            </span>
-          </button>
+              <div className="event-external-links">
+                <a href={residentAdvisor} target="_blank" rel="noreferrer">Resident Advisor ↗</a>
+                <a href={instagram} target="_blank" rel="noreferrer">Instagram ↗</a>
+              </div>
+            </div>
+          </article>
         ))}
       </div>
       {active !== null && (

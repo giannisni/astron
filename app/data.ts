@@ -1,5 +1,6 @@
 export const instagram = "https://www.instagram.com/astronclub/";
 export const soundcloud = "https://soundcloud.com/astron-bar";
+export const residentAdvisor = "https://ra.co/clubs/241181";
 
 export const posters = [
   { src: "/posters/91f9c5ccabd43800.jpg", date: "04.09.26", title: "Persephonic Sirens Night" },

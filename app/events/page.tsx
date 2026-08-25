@@ -1,5 +1,5 @@
 import PageFooter from "../components/PageFooter";
-import { instagram, posters } from "../data";
+import { instagram, posters, residentAdvisor } from "../data";
 import { pageMetadata } from "../siteMetadata";
 
 export const metadata = pageMetadata("Events", "Upcoming nights and lineups at Astron Club in Athens.");
@@ -22,7 +22,7 @@ export default function EventsPage() {
         <div className="selected-events-grid">
           {selectedEvents.map((event) => (
             <article key={event.src}>
-              <a className="selected-event-poster" href={instagram} target="_blank" rel="noreferrer" aria-label={`Details for ${event.title}`}>
+              <a className="selected-event-poster" href={residentAdvisor} target="_blank" rel="noreferrer" aria-label={`Resident Advisor page for ${event.title}`}>
                 <img src={event.src} alt={`${event.title} poster`} />
               </a>
               <div className="selected-event-details">
@@ -30,7 +30,10 @@ export default function EventsPage() {
                 <p>Date: {event.date}</p>
                 <p>Doors: 23:00 — 07:00</p>
                 <p>Venue: Astron Club, Athens</p>
-                <a href={instagram} target="_blank" rel="noreferrer">Event details ↗</a>
+                <div className="event-external-links">
+                  <a href={residentAdvisor} target="_blank" rel="noreferrer">Resident Advisor ↗</a>
+                  <a href={instagram} target="_blank" rel="noreferrer">Instagram ↗</a>
+                </div>
               </div>
             </article>
           ))}
