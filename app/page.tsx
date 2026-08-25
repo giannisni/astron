@@ -43,7 +43,7 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Astron Club home">
-          <img src="/astron-logo.jpg" alt="" />
+          <img src="/astron-logo-exact.png" alt="" />
         </a>
         <nav aria-label="Main navigation">
           <a href="#next">Next</a>
@@ -59,7 +59,7 @@ export default function Home() {
           <span className="smoke-layer smoke-two" />
           <span className="smoke-layer smoke-three" />
         </div>
-        <img className="hero-mark" src="/astron-logo.jpg" alt="" aria-hidden="true" />
+        <img className="hero-mark" src="/astron-logo-exact.png" alt="" aria-hidden="true" />
         <div className="hero-noise" aria-hidden="true" />
         <p className="eyebrow">Athens · 121 Konstantinoupoleos</p>
         <p className="hero-side">Electronic music<br />&amp; club culture</p>
@@ -116,7 +116,7 @@ export default function Home() {
             <p>Local currents meet international selectors across techno, electro, experimental sound and the spaces between. Come as you are. Stay for the whole arc.</p>
           </div>
         </div>
-        <img className="about-mark" src="/astron-logo.jpg" alt="Astron spiral mark" />
+        <img className="about-mark" src="/astron-logo-exact.png" alt="Astron spiral mark" />
       </section>
 
       <section className="visit-section" id="visit">
