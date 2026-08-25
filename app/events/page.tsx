@@ -1,30 +1,48 @@
-import InnerHeader from "../components/InnerHeader";
 import PageFooter from "../components/PageFooter";
 import { instagram, posters } from "../data";
 import { pageMetadata } from "../siteMetadata";
 
 export const metadata = pageMetadata("Events", "Upcoming nights and lineups at Astron Club in Athens.");
 
+const selectedEvents = [posters[3], posters[0], posters[1], posters[2]];
+
 export default function EventsPage() {
   return (
-    <main className="inner-page">
-      <InnerHeader />
-      <section className="page-intro">
-        <p className="page-index">01 / Events</p>
-        <h1>Next at<br />Astron</h1>
-        <p>Doors at 23:00. The night ends when the signal does.</p>
+    <main className="events-projects-page">
+      <header className="events-projects-header">
+        <a className="events-projects-wordmark" href="/">Astron</a>
+        <p>Events</p>
+        <a className="events-projects-home" href="/" aria-label="Astron Club home">
+          <img src="/astron-logo-exact.png" alt="" />
+        </a>
+      </header>
+
+      <section className="selected-events">
+        <h1>Selected Events</h1>
+        <div className="selected-events-grid">
+          {selectedEvents.map((event) => (
+            <article key={event.src}>
+              <a className="selected-event-poster" href={instagram} target="_blank" rel="noreferrer" aria-label={`Details for ${event.title}`}>
+                <img src={event.src} alt={`${event.title} poster`} />
+              </a>
+              <div className="selected-event-details">
+                <h2>{event.title}</h2>
+                <p>Date: {event.date}</p>
+                <p>Doors: 23:00 — 07:00</p>
+                <p>Venue: Astron Club, Athens</p>
+                <a href={instagram} target="_blank" rel="noreferrer">Event details ↗</a>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
-      <section className="event-list">
-        {posters.slice(0, 4).map((event, index) => (
-          <article className="event-row" key={event.src}>
-            <p>{String(index + 1).padStart(2, "0")}</p>
-            <p>{event.date}</p>
-            <h2>{event.title}</h2>
-            <img src={event.src} alt={`${event.title} poster`} />
-            <a href={instagram} target="_blank" rel="noreferrer">Details ↗</a>
-          </article>
-        ))}
-      </section>
+
+      <nav className="events-page-nav" aria-label="Site navigation">
+        <a href="/sets">Sets</a>
+        <a href="/archive">Archive</a>
+        <a href="/about">About</a>
+        <a href="/visit">Visit</a>
+      </nav>
       <PageFooter />
     </main>
   );
