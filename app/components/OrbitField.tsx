@@ -33,10 +33,10 @@ export default function OrbitField() {
       context.fillStyle = "#080809";
       context.fillRect(0, 0, width, height);
       const mobile = width < 700;
-      const regionWidth = mobile ? width * 0.82 : Math.min(width * 0.56, height * 0.92);
-      const regionHeight = height * (mobile ? 0.64 : 0.7);
-      const regionLeft = mobile ? width * 0.09 : width * 0.12;
-      const regionTop = height * (mobile ? 0.18 : 0.15);
+      const regionWidth = mobile ? width * 0.68 : Math.min(width * 0.46, height * 0.72);
+      const regionHeight = height;
+      const regionLeft = mobile ? width * 0.08 : width * 0.13;
+      const regionTop = 0;
       const lines = mobile ? 52 : 78;
       const steps = mobile ? 130 : 165;
       const fieldX = regionLeft + regionWidth * (0.64 + Math.sin(t * 0.38) * 0.035);
@@ -55,7 +55,7 @@ export default function OrbitField() {
         context.beginPath();
         for (let step = 0; step <= steps; step += 1) {
           const progress = step / steps;
-          const y = regionTop - 22 + progress * (regionHeight + 44);
+          const y = -12 + progress * (regionHeight + 24);
           const ny = (y - regionTop) / regionHeight;
           const dx = (baseX - fieldX) / (regionWidth * 0.43);
           const dy = (y - fieldY) / (regionHeight * 0.37);
