@@ -14,8 +14,6 @@ export default function OrbitField() {
     let width = 0;
     let height = 0;
     let dpr = 1;
-    let pointerX = 0;
-    let pointerY = 0;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const resize = () => {
@@ -29,18 +27,13 @@ export default function OrbitField() {
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
-    const onPointerMove = (event: PointerEvent) => {
-      pointerX = event.clientX / width - 0.5;
-      pointerY = event.clientY / height - 0.5;
-    };
-
     const draw = (now: number) => {
       const t = reduceMotion ? 0.7 : now * 0.00055;
       context.clearRect(0, 0, width, height);
       context.fillStyle = "#080809";
       context.fillRect(0, 0, width, height);
-      const cx = width * (0.42 + pointerX * 0.024);
-      const cy = height * (0.52 + pointerY * 0.024);
+      const cx = width * 0.42;
+      const cy = height * 0.52;
       const pulse = 1 + Math.sin(t * 1.8) * 0.035;
       const radius = Math.min(width, height) * (width < 700 ? 0.33 : 0.36) * pulse;
       const rings = width < 700 ? 48 : 68;
@@ -54,7 +47,7 @@ export default function OrbitField() {
 
       for (let ring = 1; ring <= rings; ring += 1) {
         const n = ring / rings;
-        const spiral = (1 - n) * 2.5 + t * 1.15 + pointerX * 0.28;
+        const spiral = (1 - n) * 2.5 + t * 1.15;
         context.beginPath();
         for (let step = 0; step <= steps; step += 1) {
           const theta = (step / steps) * Math.PI * 2;
@@ -80,11 +73,9 @@ export default function OrbitField() {
     resize();
     draw(0);
     window.addEventListener("resize", resize);
-    window.addEventListener("pointermove", onPointerMove, { passive: true });
     return () => {
       cancelAnimationFrame(animation);
       window.removeEventListener("resize", resize);
-      window.removeEventListener("pointermove", onPointerMove);
     };
   }, []);
 
