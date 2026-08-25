@@ -1,4 +1,5 @@
 import PageFooter from "../components/PageFooter";
+import ProjectHeader from "../components/ProjectHeader";
 import { soundcloud } from "../data";
 import { pageMetadata } from "../siteMetadata";
 
@@ -7,13 +8,7 @@ export const metadata = pageMetadata("Sets", "Live recordings and sessions from 
 export default function SetsPage() {
   return (
     <main className="events-projects-page sets-projects-page">
-      <header className="events-projects-header">
-        <a className="events-projects-wordmark" href="/">Astron</a>
-        <p>Sets</p>
-        <a className="events-projects-home" href="/" aria-label="Astron Club home">
-          <img src="/astron-logo-exact.png" alt="" />
-        </a>
-      </header>
+      <ProjectHeader title="Sets" />
 
       <section className="selected-events sets-selected-events">
         <h1>Recorded Sets</h1>

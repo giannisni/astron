@@ -1,4 +1,5 @@
 import PageFooter from "../components/PageFooter";
+import ProjectHeader from "../components/ProjectHeader";
 import { pageMetadata } from "../siteMetadata";
 
 export const metadata = pageMetadata("About", "Astron is a room for adventurous electronic music and Athens club culture.");
@@ -6,13 +7,7 @@ export const metadata = pageMetadata("About", "Astron is a room for adventurous 
 export default function AboutPage() {
   return (
     <main className="events-projects-page about-projects-page">
-      <header className="events-projects-header">
-        <a className="events-projects-wordmark" href="/">Astron</a>
-        <p>About</p>
-        <a className="events-projects-home" href="/" aria-label="Astron Club home">
-          <img src="/astron-logo-exact.png" alt="" />
-        </a>
-      </header>
+      <ProjectHeader title="About" />
 
       <section className="selected-events about-selected-events">
         <h1>About Astron</h1>

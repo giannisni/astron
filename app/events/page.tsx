@@ -1,4 +1,5 @@
 import PageFooter from "../components/PageFooter";
+import ProjectHeader from "../components/ProjectHeader";
 import { instagram, posters, residentAdvisor } from "../data";
 import { pageMetadata } from "../siteMetadata";
 
@@ -9,13 +10,7 @@ const selectedEvents = [posters[3], posters[0], posters[1], posters[2]];
 export default function EventsPage() {
   return (
     <main className="events-projects-page">
-      <header className="events-projects-header">
-        <a className="events-projects-wordmark" href="/">Astron</a>
-        <p>Events</p>
-        <a className="events-projects-home" href="/" aria-label="Astron Club home">
-          <img src="/astron-logo-exact.png" alt="" />
-        </a>
-      </header>
+      <ProjectHeader title="Events" />
 
       <section className="selected-events">
         <h1>Selected Events</h1>

@@ -1,5 +1,6 @@
 import ArchiveGallery from "../components/ArchiveGallery";
 import PageFooter from "../components/PageFooter";
+import ProjectHeader from "../components/ProjectHeader";
 import { pageMetadata } from "../siteMetadata";
 
 export const metadata = pageMetadata("Archive", "A visual archive of past Astron Club nights and posters.");
@@ -7,13 +8,7 @@ export const metadata = pageMetadata("Archive", "A visual archive of past Astron
 export default function ArchivePage() {
   return (
     <main className="events-projects-page archive-projects-page">
-      <header className="events-projects-header">
-        <a className="events-projects-wordmark" href="/">Astron</a>
-        <p>Archive</p>
-        <a className="events-projects-home" href="/" aria-label="Astron Club home">
-          <img src="/astron-logo-exact.png" alt="" />
-        </a>
-      </header>
+      <ProjectHeader title="Archive" />
 
       <section className="selected-events archive-selected-events">
         <h1>Past Events</h1>
