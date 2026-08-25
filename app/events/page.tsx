@@ -22,7 +22,7 @@ export default function EventsPage() {
         <div className="selected-events-grid">
           {selectedEvents.map((event) => (
             <article key={event.src}>
-              <a className="selected-event-poster" href={residentAdvisor} target="_blank" rel="noreferrer" aria-label={`Resident Advisor page for ${event.title}`}>
+              <a className="selected-event-poster" href={event.raUrl ?? residentAdvisor} target="_blank" rel="noreferrer" aria-label={`Resident Advisor event page for ${event.title}`}>
                 <img src={event.src} alt={`${event.title} poster`} />
               </a>
               <div className="selected-event-details">
@@ -31,7 +31,7 @@ export default function EventsPage() {
                 <p>Doors: 23:00 — 07:00</p>
                 <p>Venue: Astron Club, Athens</p>
                 <div className="event-external-links">
-                  <a href={residentAdvisor} target="_blank" rel="noreferrer">Resident Advisor ↗</a>
+                  <a href={event.raUrl ?? residentAdvisor} target="_blank" rel="noreferrer">Event on RA ↗</a>
                   <a href={instagram} target="_blank" rel="noreferrer">Instagram ↗</a>
                 </div>
               </div>

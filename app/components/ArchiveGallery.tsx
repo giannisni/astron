@@ -34,7 +34,7 @@ export default function ArchiveGallery() {
               <i>Date: {poster.date}</i>
               <em>Venue: Astron Club, Athens</em>
               <div className="event-external-links">
-                <a href={residentAdvisor} target="_blank" rel="noreferrer">Resident Advisor ↗</a>
+                <a href={poster.raUrl ?? residentAdvisor} target="_blank" rel="noreferrer">{poster.raUrl ? "Event on RA ↗" : "Astron on RA ↗"}</a>
                 <a href={instagram} target="_blank" rel="noreferrer">Instagram ↗</a>
               </div>
             </div>
