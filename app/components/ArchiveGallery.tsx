@@ -27,7 +27,11 @@ export default function ArchiveGallery() {
         {posters.map((poster, index) => (
           <button type="button" className="archive-item" key={poster.src} onClick={() => setActive(index)}>
             <img src={poster.src} alt={`${poster.title}, ${poster.date}`} loading={index > 5 ? "lazy" : "eager"} />
-            <span><b>{poster.title}</b><i>{poster.date}</i></span>
+            <span>
+              <b>{poster.title}</b>
+              <i>Date: {poster.date}</i>
+              <em>Venue: Astron Club, Athens</em>
+            </span>
           </button>
         ))}
       </div>

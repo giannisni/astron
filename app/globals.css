@@ -60,6 +60,14 @@ img { display:block; }
 .selected-event-details a { display:inline-block; margin-top:1px; text-decoration:underline; text-underline-offset:2px; }
 .events-page-nav { display:flex; justify-content:center; gap:26px; padding:16px 20px; border-top:1px solid rgba(241,240,235,.48); font-size:9px; letter-spacing:.1em; text-transform:uppercase; }
 .events-projects-page .page-footer { border-color:rgba(241,240,235,.48); }
+.archive-selected-events { padding-bottom:15vh; }
+.archive-projects-page .archive-grid { padding:0; grid-template-columns:repeat(4,minmax(0,1fr)); gap:62px 18px; }
+.archive-projects-page .archive-item:nth-child(n) { margin-top:0; }
+.archive-projects-page .archive-item img { filter:none; transition:opacity .25s ease; }
+.archive-projects-page .archive-item:hover img,.archive-projects-page .archive-item:focus-visible img { filter:none; transform:none; opacity:.84; }
+.archive-projects-page .archive-item>span { display:flex; flex-direction:column; gap:0; padding-top:10px; font-size:12px; line-height:1.22; letter-spacing:0; text-transform:none; }
+.archive-projects-page .archive-item b { font-weight:400; }
+.archive-projects-page .archive-item i,.archive-projects-page .archive-item em { font-style:normal; }
 
 .inner-page { min-height:100svh; background:var(--paper); color:var(--ink); }
 .dark-page { background:var(--night); color:#eceae3; --line:rgba(236,234,227,.26); --muted:rgba(236,234,227,.55); }
@@ -135,6 +143,8 @@ img { display:block; }
   .selected-events-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:42px 10px; }
   .selected-event-details { font-size:10px; }
   .events-page-nav { justify-content:space-between; gap:8px; padding-inline:16px; }
+  .archive-projects-page .archive-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:42px 10px; }
+  .archive-projects-page .archive-item>span { font-size:10px; }
   .inner-header { padding:16px; grid-template-columns:1fr auto; row-gap:16px; }
   .inner-header nav { grid-column:1/-1; grid-row:2; display:flex; width:100%; justify-content:space-between; gap:10px; padding-top:11px; border-top:1px solid var(--line); }
   .inner-header nav a { font-size:8px; }

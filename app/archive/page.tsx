@@ -1,5 +1,4 @@
 import ArchiveGallery from "../components/ArchiveGallery";
-import InnerHeader from "../components/InnerHeader";
 import PageFooter from "../components/PageFooter";
 import { pageMetadata } from "../siteMetadata";
 
@@ -7,14 +6,26 @@ export const metadata = pageMetadata("Archive", "A visual archive of past Astron
 
 export default function ArchivePage() {
   return (
-    <main className="inner-page">
-      <InnerHeader />
-      <section className="page-intro archive-page-intro">
-        <p className="page-index">03 / Archive</p>
-        <h1>Past<br />events</h1>
-        <p>Every night leaves a trace. Select a poster to open the archive.</p>
+    <main className="events-projects-page archive-projects-page">
+      <header className="events-projects-header">
+        <a className="events-projects-wordmark" href="/">Astron</a>
+        <p>Archive</p>
+        <a className="events-projects-home" href="/" aria-label="Astron Club home">
+          <img src="/astron-logo-exact.png" alt="" />
+        </a>
+      </header>
+
+      <section className="selected-events archive-selected-events">
+        <h1>Past Events</h1>
+        <ArchiveGallery />
       </section>
-      <ArchiveGallery />
+
+      <nav className="events-page-nav" aria-label="Site navigation">
+        <a href="/events">Events</a>
+        <a href="/sets">Sets</a>
+        <a href="/about">About</a>
+        <a href="/visit">Visit</a>
+      </nav>
       <PageFooter />
     </main>
   );
