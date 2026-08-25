@@ -35,38 +35,44 @@ export default function OrbitField() {
     };
 
     const draw = (now: number) => {
-      const t = reduceMotion ? 0 : now * 0.00016;
+      const t = reduceMotion ? 0.7 : now * 0.00018;
       context.clearRect(0, 0, width, height);
-      context.fillStyle = "#d5d3c8";
+      context.fillStyle = "#080809";
       context.fillRect(0, 0, width, height);
-      const cx = width * (0.45 + pointerX * 0.025);
-      const cy = height * (0.52 + pointerY * 0.025);
-      const radius = Math.min(width, height) * 0.38;
-      const count = width < 700 ? 86 : 142;
-      context.lineWidth = 0.7;
+      const cx = width * (0.43 + pointerX * 0.018);
+      const cy = height * (0.52 + pointerY * 0.018);
+      const radius = Math.min(width, height) * (width < 700 ? 0.43 : 0.47);
+      const rings = width < 700 ? 48 : 68;
+      const steps = width < 700 ? 210 : 320;
 
-      for (let i = 0; i < count; i += 1) {
-        const phase = i / count;
-        const angle = phase * Math.PI * 2 + t;
-        const twist = t * 1.6 + phase * Math.PI * 9;
-        const inner = radius * (0.25 + Math.sin(twist) * 0.035);
-        const outer = radius * (0.94 + Math.cos(twist * 0.72) * 0.16);
-        const x1 = cx + Math.cos(angle) * inner;
-        const y1 = cy + Math.sin(angle) * inner;
-        const offset = angle + 1.22 + Math.sin(t * 2 + phase * 6) * 0.2;
-        const x2 = cx + Math.cos(offset) * outer;
-        const y2 = cy + Math.sin(offset) * outer;
+      context.lineWidth = width < 700 ? 0.92 : 1.12;
+      context.lineJoin = "round";
+      context.shadowColor = "rgba(205,190,232,.3)";
+      context.shadowBlur = width < 700 ? 3 : 5;
+      context.globalCompositeOperation = "screen";
+
+      for (let ring = 1; ring <= rings; ring += 1) {
+        const n = ring / rings;
+        const spiral = (1 - n) * 2.5 + t * 0.55 + pointerX * 0.2;
         context.beginPath();
-        context.moveTo(x1, y1);
-        context.quadraticCurveTo(
-          cx + Math.cos(angle + twist * 0.08) * radius * 0.63,
-          cy + Math.sin(angle + twist * 0.08) * radius * 0.63,
-          x2,
-          y2,
-        );
-        context.strokeStyle = i % 3 === 0 ? "rgba(16,16,14,.46)" : "rgba(16,16,14,.2)";
+        for (let step = 0; step <= steps; step += 1) {
+          const theta = (step / steps) * Math.PI * 2;
+          const lobe = Math.cos(theta * 3 + spiral);
+          const ripple = Math.sin(theta * 6 - spiral * 0.7);
+          const deformation = 1 + lobe * (0.055 + n * 0.19) + ripple * 0.018 * n;
+          const r = radius * n * deformation;
+          const angle = theta + spiral * (0.14 + (1 - n) * 0.34) + t * 0.12;
+          const x = cx + Math.cos(angle) * r;
+          const y = cy + Math.sin(angle) * r * 1.04;
+          if (step === 0) context.moveTo(x, y);
+          else context.lineTo(x, y);
+        }
+        context.closePath();
+        context.strokeStyle = `rgba(241,240,235,${0.5 + n * 0.42})`;
         context.stroke();
       }
+      context.globalCompositeOperation = "source-over";
+      context.shadowBlur = 0;
       if (!reduceMotion) animation = requestAnimationFrame(draw);
     };
 
