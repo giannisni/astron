@@ -35,13 +35,14 @@ export default function OrbitField() {
     };
 
     const draw = (now: number) => {
-      const t = reduceMotion ? 0.7 : now * 0.00018;
+      const t = reduceMotion ? 0.7 : now * 0.00055;
       context.clearRect(0, 0, width, height);
       context.fillStyle = "#080809";
       context.fillRect(0, 0, width, height);
-      const cx = width * (0.43 + pointerX * 0.018);
-      const cy = height * (0.52 + pointerY * 0.018);
-      const radius = Math.min(width, height) * (width < 700 ? 0.43 : 0.47);
+      const cx = width * (0.42 + pointerX * 0.024);
+      const cy = height * (0.52 + pointerY * 0.024);
+      const pulse = 1 + Math.sin(t * 1.8) * 0.035;
+      const radius = Math.min(width, height) * (width < 700 ? 0.33 : 0.36) * pulse;
       const rings = width < 700 ? 48 : 68;
       const steps = width < 700 ? 210 : 320;
 
@@ -53,7 +54,7 @@ export default function OrbitField() {
 
       for (let ring = 1; ring <= rings; ring += 1) {
         const n = ring / rings;
-        const spiral = (1 - n) * 2.5 + t * 0.55 + pointerX * 0.2;
+        const spiral = (1 - n) * 2.5 + t * 1.15 + pointerX * 0.28;
         context.beginPath();
         for (let step = 0; step <= steps; step += 1) {
           const theta = (step / steps) * Math.PI * 2;
@@ -61,7 +62,7 @@ export default function OrbitField() {
           const ripple = Math.sin(theta * 6 - spiral * 0.7);
           const deformation = 1 + lobe * (0.055 + n * 0.19) + ripple * 0.018 * n;
           const r = radius * n * deformation;
-          const angle = theta + spiral * (0.14 + (1 - n) * 0.34) + t * 0.12;
+          const angle = theta + spiral * (0.14 + (1 - n) * 0.34) + t * 0.38;
           const x = cx + Math.cos(angle) * r;
           const y = cy + Math.sin(angle) * r * 1.04;
           if (step === 0) context.moveTo(x, y);
