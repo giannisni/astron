@@ -1,4 +1,5 @@
 import { posters } from "./data";
+import OrbitField from "./components/OrbitField";
 
 function nextEvent() {
   const now = new Date();
@@ -24,12 +25,8 @@ export default function Home() {
   const upcoming = nextEvent();
   return (
     <main className="mirror-home">
-      <div className="mirror-collage" aria-hidden="true">
-        <div className="mirror-panel smoke-panel"><img src="/hero-smoke-texture.png" alt="" /></div>
-        <div className="mirror-panel symbol-panel"><img src="/astron-logo-exact.png" alt="" /></div>
-        <div className="mirror-panel symbol-panel reverse-symbol"><img src="/astron-logo-exact.png" alt="" /></div>
-        <div className="mirror-panel smoke-panel reflected-smoke"><img src="/hero-smoke-texture.png" alt="" /></div>
-      </div>
+      <OrbitField />
+      <div className="grain" aria-hidden="true" />
       <header className="mirror-home-header"><a href="/" aria-label="Astron Club home">ASTRON_CLUB</a><span>ATHENS, GR · 37°58′ N</span></header>
       <section className="mirror-entrance" aria-labelledby="entrance-title">
         <p className="mirror-kicker">Electronic music &amp; club culture</p>
