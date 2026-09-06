@@ -1,4 +1,3 @@
-import OrbitField from "./components/OrbitField";
 import { posters } from "./data";
 
 function nextEvent() {
@@ -24,36 +23,35 @@ const navigation = [
 export default function Home() {
   const upcoming = nextEvent();
   return (
-    <main className="home-screen">
-      <OrbitField />
-      <div className="grain" aria-hidden="true" />
-      <a className="home-wordmark" href="/" aria-label="Astron Club home">Astron</a>
-      <nav className="home-top-nav" aria-label="Main navigation">
-        {navigation.map(([label, href]) => (
-          <a href={href} key={href}>{label}</a>
-        ))}
-      </nav>
-      <img className="home-symbol" src="/astron-logo-exact.png" alt="Astron spiral symbol" />
+    <main className="mirror-home">
+      <div className="mirror-collage" aria-hidden="true">
+        <div className="mirror-panel smoke-panel"><img src="/hero-smoke-texture.png" alt="" /></div>
+        <div className="mirror-panel symbol-panel"><img src="/astron-logo-exact.png" alt="" /></div>
+        <div className="mirror-panel symbol-panel reverse-symbol"><img src="/astron-logo-exact.png" alt="" /></div>
+        <div className="mirror-panel smoke-panel reflected-smoke"><img src="/hero-smoke-texture.png" alt="" /></div>
+      </div>
+      <header className="mirror-home-header"><a href="/" aria-label="Astron Club home">ASTRON_CLUB</a><span>ATHENS, GR · 37°58′ N</span></header>
+      <section className="mirror-entrance" aria-labelledby="entrance-title">
+        <p className="mirror-kicker">Electronic music &amp; club culture</p>
+        <h1 id="entrance-title"><span>ASTRON</span><em>After dark.</em></h1>
+        <a className="mirror-enter" href="/events">Enter the club <span aria-hidden="true">↗</span></a>
+        <p className="mirror-address">121 Konstantinoupoleos<br />Athens, Greece</p>
+      </section>
       {upcoming && (
         <a
-          className="home-next-event"
+          className="mirror-next-event"
           href={upcoming.raUrl ?? "/events"}
           target={upcoming.raUrl ? "_blank" : undefined}
           rel={upcoming.raUrl ? "noreferrer" : undefined}
         >
-          <p>Next event</p>
           <img src={upcoming.src} alt={`Poster for ${upcoming.title}`} />
-          <span>{upcoming.date} · {upcoming.title}</span>
+          <span><small>Next transmission · {upcoming.date}</small>{upcoming.title}<b>View event ↗</b></span>
         </a>
       )}
-      <div className="home-meta">
-        <p>Athens · 121 Konstantinoupoleos</p>
-        <p>Electronic music &amp; club culture</p>
-      </div>
-      <div className="home-socials">
+      <footer className="mirror-home-footer">
+        <nav aria-label="Main navigation">{navigation.map(([label, href], index) => <a href={href} key={href}><small>0{index + 1}</small>{label}</a>)}</nav>
         <a href="https://www.instagram.com/astronclub/" target="_blank" rel="noreferrer">Instagram ↗</a>
-        <a href="https://soundcloud.com/astron-bar" target="_blank" rel="noreferrer">SoundCloud ↗</a>
-      </div>
+      </footer>
     </main>
   );
 }
