@@ -21,7 +21,7 @@ export default function Home() {
     <main className="td-home">
       <ProjectHeader title="Home" />
       <section className="td-stage" aria-label="Astron Club, Athens">
-        <div className="td-line-background" aria-hidden="true"><OrbitField /></div>
+        <div className="td-sculpture" aria-hidden="true"><OrbitField compact /></div>
       {upcoming && (
         <a
           className="td-next-event"
