@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import "./globals.css";
-import "./mirrors.css";
-import ToneShift from "./components/ToneShift";
+import "./timedance.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
@@ -29,7 +28,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ToneShift />
         {children}
       </body>
     </html>

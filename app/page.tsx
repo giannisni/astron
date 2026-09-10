@@ -1,5 +1,7 @@
 import { posters } from "./data";
 import OrbitField from "./components/OrbitField";
+import ProjectHeader from "./components/ProjectHeader";
+import PageFooter from "./components/PageFooter";
 
 function nextEvent() {
   const now = new Date();
@@ -13,28 +15,17 @@ function nextEvent() {
     .sort((a, b) => a.when - b.when)[0];
 }
 
-const navigation = [
-  ["Events", "/events"],
-  ["Sets", "/sets"],
-  ["Archive", "/archive"],
-  ["About", "/about"],
-  ["Visit", "/visit"],
-] as const;
-
 export default function Home() {
   const upcoming = nextEvent();
   return (
-    <main className="home-screen">
-      <OrbitField />
-      <div className="grain" aria-hidden="true" />
-      <a className="home-wordmark" href="/" aria-label="Astron Club home">Astron</a>
-      <nav className="home-top-nav" aria-label="Main navigation">
-        {navigation.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
-      </nav>
-      <img className="home-symbol" src="/astron-logo-exact.png" alt="Astron spiral symbol" />
+    <main className="td-home">
+      <ProjectHeader title="Home" />
+      <section className="td-stage" aria-label="Astron Club, Athens">
+        <div className="td-sculpture" aria-hidden="true"><OrbitField compact /><img src="/astron-logo-exact.png" alt="" /></div>
+        <h1 className="td-stage-wordmark">Astron</h1>
       {upcoming && (
         <a
-          className="home-next-event"
+          className="td-next-event"
           href={upcoming.raUrl ?? "/events"}
           target={upcoming.raUrl ? "_blank" : undefined}
           rel={upcoming.raUrl ? "noreferrer" : undefined}
@@ -44,14 +35,8 @@ export default function Home() {
           <span>{upcoming.date} · {upcoming.title}</span>
         </a>
       )}
-      <div className="home-meta">
-        <p>Athens · 121 Konstantinoupoleos</p>
-        <p>Electronic music &amp; club culture</p>
-      </div>
-      <div className="home-socials">
-        <a href="https://www.instagram.com/astronclub/" target="_blank" rel="noreferrer">Instagram ↗</a>
-        <a href="https://soundcloud.com/astron-bar" target="_blank" rel="noreferrer">SoundCloud ↗</a>
-      </div>
+      </section>
+      <PageFooter />
     </main>
   );
 }

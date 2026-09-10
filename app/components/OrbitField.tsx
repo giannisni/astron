@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export default function OrbitField() {
+export default function OrbitField({ compact = false }: { compact?: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -18,8 +18,8 @@ export default function OrbitField() {
 
     const resize = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
-      width = window.innerWidth;
-      height = window.innerHeight;
+      width = compact ? canvas.parentElement?.clientWidth || 400 : window.innerWidth;
+      height = compact ? canvas.parentElement?.clientHeight || 400 : window.innerHeight;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       canvas.style.width = `${width}px`;
@@ -30,12 +30,12 @@ export default function OrbitField() {
     const draw = (now: number) => {
       const t = reduceMotion ? 0.7 : now * 0.00035;
       context.clearRect(0, 0, width, height);
-      context.fillStyle = "#080809";
+      context.fillStyle = compact ? "#000000" : "#080809";
       context.fillRect(0, 0, width, height);
       const mobile = width < 700;
-      const regionWidth = mobile ? width * 0.60 : Math.min(width * 0.41, height * 0.64);
+      const regionWidth = compact ? width * 0.85 : mobile ? width * 0.60 : Math.min(width * 0.41, height * 0.64);
       const regionHeight = height;
-      const regionLeft = mobile ? width * 0.08 : width * 0.13;
+      const regionLeft = compact ? width * 0.075 : mobile ? width * 0.08 : width * 0.13;
       const regionTop = 0;
       const lines = mobile ? 52 : 78;
       const steps = mobile ? 130 : 165;
@@ -88,7 +88,7 @@ export default function OrbitField() {
       cancelAnimationFrame(animation);
       window.removeEventListener("resize", resize);
     };
-  }, []);
+  }, [compact]);
 
   return <canvas ref={canvasRef} className="orbit-field" aria-hidden="true" />;
 }
