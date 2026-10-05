@@ -4,7 +4,7 @@ html,body { background:#000; color:var(--ink); }
 body { font-family:Arial,Helvetica,sans-serif; font-size:14px; }
 a:focus-visible,button:focus-visible { outline:1px solid #fff; outline-offset:4px; }
 .td-header { height:48px; display:flex; position:sticky; top:0; z-index:30; align-items:center; padding:0 22px; background:#000; border-bottom:1px solid var(--line); gap:8vw; }
-.td-brand { flex:0 0 26px; }
+.td-brand { flex:0 0 auto; display:flex; align-items:center; gap:10px; font-size:26px; font-weight:700; letter-spacing:-.045em; white-space:nowrap; }
 .td-brand img { width:26px; height:26px; object-fit:contain; }
 .td-header nav { flex:1; display:flex; justify-content:space-between; align-items:center; }
 .td-header nav a { padding:12px 0; font-size:14px; font-weight:400; }
@@ -72,7 +72,8 @@ a:focus-visible,button:focus-visible { outline:1px solid #fff; outline-offset:4p
   .td-header { height:50px; padding:0 12px; gap:22px; }
   .td-header nav { gap:10px; }
   .td-header nav a { font-size:12px; }
-  .td-brand,.td-brand img { width:24px; flex-basis:24px; }
+  .td-brand { gap:7px; font-size:18px; }
+  .td-brand img { width:24px; height:24px; }
   .td-stage { min-height:calc(100svh - 50px); padding-bottom:170px; }
   .td-sculpture { width:min(64vw,330px); }
   .td-next-event { width:190px; right:16px; bottom:25px; display:grid; grid-template-columns:55px 1fr; column-gap:12px; }
