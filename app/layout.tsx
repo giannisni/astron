@@ -14,7 +14,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title,
     description,
-    icons: { icon: "/astron-logo-exact.png", shortcut: "/astron-logo-exact.png" },
+    icons: {
+      icon: [
+        { url: "/favicon.ico?v=astron-2", sizes: "64x64", type: "image/x-icon" },
+        { url: "/astron-favicon.png?v=2", sizes: "64x64", type: "image/png" },
+      ],
+      shortcut: "/favicon.ico?v=astron-2",
+    },
     openGraph: { title, description, url: origin, siteName: "Astron Club", images: [{ url: `${origin}/astron-social-card-v2.png`, width: 1729, height: 910, alt: "Astron Club atmosphere" }], type: "website" },
     twitter: { card: "summary_large_image", title, description, images: [`${origin}/astron-social-card-v2.png`] },
   };
