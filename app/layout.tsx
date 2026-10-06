@@ -28,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <div className="site-texture" aria-hidden="true" />
         {children}
       </body>
     </html>
