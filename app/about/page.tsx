@@ -37,7 +37,6 @@ export default function AboutPage() {
       <nav className="events-page-nav" aria-label="Site navigation">
         <a href="/events">Events</a>
         <a href="/sets">Sets</a>
-        <a href="/archive">Archive</a>
         <a href="/visit">Visit</a>
       </nav>
       <PageFooter />

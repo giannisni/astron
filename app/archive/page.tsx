@@ -2,6 +2,7 @@ import ArchiveGallery from "../components/ArchiveGallery";
 import PageFooter from "../components/PageFooter";
 import ProjectHeader from "../components/ProjectHeader";
 import { pageMetadata } from "../siteMetadata";
+import { athensToday, eventDay, posters } from "../data";
 
 export const metadata = pageMetadata("Archive", "A visual archive of past Astron Club nights and posters.");
 
@@ -12,7 +13,7 @@ export default function ArchivePage() {
 
       <section className="selected-events archive-selected-events">
         <h1>Past Events</h1>
-        <ArchiveGallery />
+        <ArchiveGallery posters={posters.filter(event => eventDay(event.date) < athensToday()).sort((a, b) => eventDay(b.date).localeCompare(eventDay(a.date)))} />
       </section>
 
       <nav className="events-page-nav" aria-label="Site navigation">

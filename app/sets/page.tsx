@@ -50,7 +50,6 @@ export default function SetsPage() {
 
       <nav className="events-page-nav" aria-label="Site navigation">
         <a href="/events">Events</a>
-        <a href="/archive">Archive</a>
         <a href="/about">About</a>
         <a href="/visit">Visit</a>
       </nav>
